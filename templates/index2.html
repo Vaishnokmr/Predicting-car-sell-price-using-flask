@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbecho.com</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+
+    
+
+    
+    
+  </head>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .btn btn-outline-dark{
+            margin: 0.3;
+        }
+
+        h2 {
+
+            color: #426696;
+            font-weight: 600;
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+
+        h4 {
+
+            color: #315552;
+            font-weight: 600;
+            font-size: 1rem;
+            opacity: 0.8;
+            margin: 0.5rem;
+
+        }
+
+        main {
+            min-height: 100vh;
+            background: linear-gradient(to right top, #65dfc9, #6cdbeb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .glass {
+            background: white;
+            min-height: 80vh;
+            width: 60%;
+            background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.3));
+            border-radius: 1rem;
+            z-index: 2;
+            backdrop-filter: blur(2rem);
+            display: flex;
+
+
+        }
+
+        .circle1,
+        .circle2 {
+            background: rgb(255, 253, 253);
+            background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
+            height: 4rem;
+            width: 4rem;
+            position: absolute;
+            border-radius: 50%;
+
+
+
+
+        }
+
+        .circle1 {
+            top: 25%;
+            right: 7%;
+
+
+        }
+
+        .circle2 {
+
+            bottom: 15%;
+            left: 1%;
+        }
+
+        .dashboard {
+            flex: 0.25;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            text-align: center;
+            background: white;
+            min-height: 80vh;
+            width: 35%;
+            background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.5), rgba(203, 245, 243, 0.57));
+            border-radius: 1rem;
+            
+        }
+
+        .prediction {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            text-align: center;
+        }
+
+        .link {
+            flex: 0.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            text-align: center;
+            margin: 2rem 0rem;
+            padding: 0.5rem 2rem;
+        }
+
+
+        label{
+            color: #426696;
+            font-weight: 600;
+            font-size: 1rem;
+            opacity: 0.8;
+            margin: 0.2rem;
+        }
+        .mx-auto {
+
+            flex: 0.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            text-align: center;
+            margin: 0.2rem 0rem;
+            padding: 0.3rem 2rem;
+            
+
+
+
+
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+
+
+    <main>
+
+        <div class="link">
+            <img style="width:120px; height: 120px;" src="{{url_for('static', filename='car.png')}}">
+            <h1>Carbecho.com</h1>
+            
+        </div>
+
+
+
+       
+
+
+        <section class="glass">
+
+            <div class="dashboard">
+
+                <div class="links">
+
+                    <div class="link">
+                        
+                        <a href={{url_for('home')}}><img style="width: 60px; height: 60px;" src="{{url_for('static', filename='home.png')}}" /></a>
+                    </div>
+
+                    <div class="link">
+                        
+                        <a href={{url_for('car_sell')}}><img style="width: 80px; height: 80px;" src="{{url_for('static', filename='car_sell.png')}}" /></h2></a>
+                    </div>
+
+                    
+                    <div class="link">
+                        
+                        <a href={{url_for('About')}}><img style="width: 80px; height: 80px;" src="{{url_for('static', filename='1433250.png')}}" /></a>
+                    </div>
+
+                    <div class="link">
+                        
+                        <a href={{url_for('contact')}}><img style="width: 60px; height: 60px;" src="{{url_for('static', filename='call.webp')}}"></a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="prediction">
+            <form action="{{ url_for('predict')}}" method = "POST" accept-charset="utf-8" class="d-grid gap-1">
+            
+
+
+                <div class="mx-auto" style="width: 400px;"><label>Present Price </label>
+                    <br>  <input class=" selectpicker form-control" id="first" name="Present_Price" required="required">
+                    </select>
+                </div>
+
+                <div class="mx-auto" style="width: 400px;"><label>Kms Driven</label><br>
+                        <input type="Kms_Driven" class="form-control" id="Kms_Driven" name="Kms_Driven" required="1">
+                </div>
+
+                <div class="mx-auto" style="width: 400px;"><label>Owner</label>
+                    <input type="Owner" class="form-control" id="Owner" name="Owner" required="1">
+                </div>
+
+                <div class="mx-auto" style="width: 400px;"><label>Old Car</label>
+                    <input type="Old_Car" class="form-control" id="Old_Car" name="Old_Car" required="1">
+                </div>
+
+                <div class="mx-auto" style="width: 400px;"><label>Price rate change in %</label>
+                    <input type="Price_rate_change" class="form-control" id="Price_rate_change" name="Price_rate_change"
+                        required="1">
+                </div>
+
+                <div class="mx-auto" style="width: 400px;"><label>Fuel Type </label>
+                    <br><select class="form-control" name="Fuel_Type_Petrol" id="fuel" required="required">
+                        <option value="Petrol">Petrol</option>
+                        <option value="Diesel">Diesel</option>
+                        <option value="Diesel">CNG</option>
+                    </select>
+                </div>
+
+                <div class="mx-auto" style="width: 400px;"><label>Seller Type Individual</label>
+                    <select type="Seller_Type_Individual" class="form-control" id="Seller_Type_Individual"
+                        name="Seller_Type_Individual" required="required">
+                        <option value="Dealer">Dealer</option>
+                        <option value="Individual">Individual</option>
+                    </select>
+                </div>
+
+
+                <div class="mx-auto" style="width: 400px;"><label>Functionality of Car</label>
+                    <select type="Transmission_Manual" class="form-control" id="Transmission_Manual"
+                        name="Transmission_Manual" required="1">
+                        <option value="Mannual">Manual Car</option>
+                        <option value="Automatic">Automatic Car</option>
+                    </select>
+                </div>
+
+                <br><br><button id="sub" type="submit "class="btn btn-outline-dark">Calculate the Selling Price</button>
+          <br>
+      </form>
+    <br><br>
+    <br>
+    <h2>  {{ prediction_text }}<h2>
+
+
+            </div>
+
+        </section>
+    </main>
+
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+
+</body>
+
+</html>
