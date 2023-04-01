@@ -17,7 +17,7 @@
 
 
 ## Demo
-Link: [https://car-prediction-flask.herokuapp.com/](https://car-prediction-flask.herokuapp.com/)
+Link: [https://car-selling-price-q9pn.onrender.com](https://car-selling-price-q9pn.onrender.com)
 
 ### homepage
 
